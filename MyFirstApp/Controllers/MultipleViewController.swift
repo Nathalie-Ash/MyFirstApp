@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class MultipleViewController: UIViewController {
     
     @IBOutlet weak var MultipleChoiceTextLabel: UILabel!
@@ -18,12 +19,12 @@ class MultipleViewController: UIViewController {
     
     
     var timer  = Timer()
-    var quizBrain2 = MultipleChoiceBrain()
-    var quizBrain1 = QuizBrain()
-    
+    var quizBrain = MultipleChoiceBrain()
+    var sharedScore = ScoreManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateUI()
        
     }
@@ -31,7 +32,7 @@ class MultipleViewController: UIViewController {
     @IBAction func answerPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
         
-        let userCorrect = quizBrain2.checkAnswer(userAnswer)
+        let userCorrect = quizBrain.checkAnswer(userAnswer)
         if userCorrect{
             sender.backgroundColor = UIColor.green
             
@@ -39,23 +40,44 @@ class MultipleViewController: UIViewController {
             sender.backgroundColor = UIColor.red
         }
         
-        quizBrain2.nextQuestion()
+        quizBrain.nextQuestion()
          
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+        
+        if quizBrain.flag {
+        
+            performSegue(withIdentifier: "goToScorePage", sender: self)
+            
+        }else{
+            timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+        }
     }
     
     @objc func updateUI(){
-        MultipleChoiceTextLabel.text = quizBrain2.getQuestionText()
+        MultipleChoiceTextLabel.text = quizBrain.getQuestionText()
         //print("Test: \(quizBrain1.getScore())")
-        scoreLabel.text = "Score: \(quizBrain2.getScore()+quizBrain1.getScore())"
-        let answerChoices = quizBrain2.getAnswers()
+        sharedScore.multipleChoiceScore = quizBrain.getScore()
+        scoreLabel.text = "Score: \(quizBrain.getScore())"
+        let answerChoices = quizBrain.getAnswers()
         choiceA.setTitle(answerChoices[0], for: .normal)
         choiceB.setTitle(answerChoices[1], for: .normal)
         choiceC.setTitle(answerChoices[2], for: .normal)
         choiceA.backgroundColor = UIColor.clear
         choiceB.backgroundColor = UIColor.clear
         choiceC.backgroundColor = UIColor.clear
-        progressBar.progress = quizBrain2.getProgress()
+        progressBar.progress = quizBrain.getProgress()
+        
+        
      
     }
-}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToScorePage" {
+            if let destinationVC = segue.destination as? ScoreViewController {
+                // Pass the score data to the destination view controller
+                destinationVC.multipleChoiceScore = sharedScore.multipleChoiceScore
+            }
+        }
+    }
+
+    }
+    
+

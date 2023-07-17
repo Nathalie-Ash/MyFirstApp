@@ -41,10 +41,15 @@ class LoginViewController: UIViewController {
         
     func showAlert() {
         let alert = UIAlertController(title: "Alert", message: "Invalid Username or Password!", preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+        
+        let closeAction = UIAlertAction(title: "Close", style: .default) { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(closeAction)
+        
+        present(alert, animated: true, completion: nil)
     }
-    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToMain" {

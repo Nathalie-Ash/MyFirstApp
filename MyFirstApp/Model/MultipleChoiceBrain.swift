@@ -26,7 +26,7 @@ struct MultipleChoiceBrain{
     
     var questionNumber = 0
     var score = 0
-   
+   var flag = false
     
     mutating func checkAnswer(_ userAnswer: String)-> Bool{
         if (userAnswer == quizMultiple[questionNumber].answer){
@@ -57,6 +57,14 @@ struct MultipleChoiceBrain{
     mutating func nextQuestion(){
         if (questionNumber+1 < quizMultiple.count){
             questionNumber += 1
+        }else{
+            flag = true
         }
     }
+    
+    mutating func reset() {
+        questionNumber = 0
+        score = 0
+    }
+
 }

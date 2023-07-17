@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F63A53CF2A618B9400041FDC /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A53CE2A618B9400041FDC /* ScoreViewController.swift */; };
+		F63A53D12A61953100041FDC /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A53D02A61953100041FDC /* ScoreManager.swift */; };
 		F63D6ECD2A6027C600477735 /* MultipleQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D6ECC2A6027C600477735 /* MultipleQuestion.swift */; };
 		F63D6ED02A6027FA00477735 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D6ECF2A6027FA00477735 /* QuizBrain.swift */; };
 		F63D6ED22A60280D00477735 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D6ED12A60280D00477735 /* Question.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F63A53CE2A618B9400041FDC /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		F63A53D02A61953100041FDC /* ScoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
 		F63D6ECC2A6027C600477735 /* MultipleQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleQuestion.swift; sourceTree = "<group>"; };
 		F63D6ECF2A6027FA00477735 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
 		F63D6ED12A60280D00477735 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				F63D6ECC2A6027C600477735 /* MultipleQuestion.swift */,
 				F63D6ECF2A6027FA00477735 /* QuizBrain.swift */,
 				F63D6ED12A60280D00477735 /* Question.swift */,
+				F63A53D02A61953100041FDC /* ScoreManager.swift */,
 				F63D6ED32A60295B00477735 /* MultipleChoiceBrain.swift */,
 			);
 			path = Model;
@@ -105,6 +110,7 @@
 				F6670BE02A600DA0009F02ED /* QuizViewController.swift */,
 				F68FDADE2A5FF93400BF9C48 /* LoginViewController.swift */,
 				F63D6ED52A602A8F00477735 /* MultipleViewController.swift */,
+				F63A53CE2A618B9400041FDC /* ScoreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -307,7 +313,9 @@
 				F63D6ED02A6027FA00477735 /* QuizBrain.swift in Sources */,
 				F68FDADD2A5FF93400BF9C48 /* SceneDelegate.swift in Sources */,
 				F63D6ED22A60280D00477735 /* Question.swift in Sources */,
+				F63A53CF2A618B9400041FDC /* ScoreViewController.swift in Sources */,
 				F6670BE12A600DA0009F02ED /* QuizViewController.swift in Sources */,
+				F63A53D12A61953100041FDC /* ScoreManager.swift in Sources */,
 				F63D6ED42A60295B00477735 /* MultipleChoiceBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
