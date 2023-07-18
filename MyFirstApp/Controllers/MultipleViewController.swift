@@ -17,14 +17,15 @@ class MultipleViewController: UIViewController {
     @IBOutlet weak var choiceA: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     
-    
+    var trueFalseScoreUpdated = ScoreManager().trueFalseScore
     var timer  = Timer()
     var quizBrain = MultipleChoiceBrain()
     var sharedScore = ScoreManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("TF Score: \(trueFalseScoreUpdated)")
+        sharedScore.trueFalseScore = trueFalseScoreUpdated
         updateUI()
        
     }
@@ -74,7 +75,9 @@ class MultipleViewController: UIViewController {
             if let destinationVC = segue.destination as? ScoreViewController {
                 // Pass the score data to the destination view controller
                 destinationVC.multipleChoiceScore = sharedScore.multipleChoiceScore
+                destinationVC.trueFalseScore = trueFalseScoreUpdated
             }
+          
         }
     }
 

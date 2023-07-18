@@ -17,7 +17,7 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var displayScore: UIButton!
     var quizBrain = QuizBrain()
-
+  
     var timer  = Timer()
   
     var sharedScore = ScoreManager()
@@ -90,7 +90,14 @@ class QuizViewController: UIViewController {
             if let destinationVC = segue.destination as? ScoreViewController {
                 // Pass the score data to the destination view controller
                 destinationVC.trueFalseScore = sharedScore.trueFalseScore
-                destinationVC.multipleChoiceScore = sharedScore.multipleChoiceScore
+               // destinationVC.multipleChoiceScore = sharedScore.multipleChoiceScore
+            }
+           
+        }
+        
+        if segue.identifier == "goToMultiple" {
+            if let destinationVC = segue.destination as? MultipleViewController{
+                destinationVC.trueFalseScoreUpdated = sharedScore.trueFalseScore
             }
         }
     }

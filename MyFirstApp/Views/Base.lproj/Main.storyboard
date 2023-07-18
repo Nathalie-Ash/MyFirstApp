@@ -27,15 +27,18 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KK7-9W-z0N">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7NW-zZ-x84">
                                                 <rect key="frame" x="103" y="0.0" width="881" height="50"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Yh2-wc-vjq"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="PSs-zX-rOC"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="9W8-ax-Uye">
                                         <rect key="frame" x="0.0" y="90" width="984" height="50"/>
@@ -108,7 +111,7 @@
                     <navigationItem key="navigationItem" id="kbe-iU-Bt2"/>
                     <connections>
                         <outlet property="passLabel" destination="cr0-ii-heQ" id="onJ-uN-q7r"/>
-                        <outlet property="userLabel" destination="KK7-9W-z0N" id="yRa-nI-uJV"/>
+                        <outlet property="userLabel" destination="7NW-zZ-x84" id="gpY-lZ-tXx"/>
                         <segue destination="R4m-re-DHn" kind="presentation" identifier="goToMain" id="05W-5g-c9U"/>
                     </connections>
                 </viewController>
@@ -478,7 +481,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ki0-P1-4Yl"/>
-        <segue reference="lFW-8h-sla"/>
+        <segue reference="05W-5g-c9U"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Background-Bubbles" width="352" height="102"/>
