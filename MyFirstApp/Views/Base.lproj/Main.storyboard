@@ -297,6 +297,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-IO-spc">
                                         <rect key="frame" x="0.0" y="1106" width="924" height="70"/>
+                                        <accessibility key="accessibilityConfiguration" label="choiceA"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="PFM-Cq-ccA"/>
                                         </constraints>
@@ -311,6 +312,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pws-XV-4hK">
                                         <rect key="frame" x="0.0" y="1186" width="924" height="70"/>
+                                        <accessibility key="accessibilityConfiguration" label="choiceB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="4ps-af-D67"/>
                                         </constraints>
@@ -325,6 +327,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28f-Q8-qzl">
                                         <rect key="frame" x="0.0" y="1266" width="924" height="70"/>
+                                        <accessibility key="accessibilityConfiguration" label="choiceC"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="dRe-KQ-zTw"/>
                                         </constraints>

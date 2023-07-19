@@ -23,13 +23,15 @@ class MultipleViewController: UIViewController {
     var sharedScore = ScoreManager()
     
     override func viewDidLoad() {
+        view.accessibilityIdentifier = "MultipleChoiceView"
+        choiceA.accessibilityIdentifier = "choiceAButton"
         super.viewDidLoad()
         print("TF Score: \(trueFalseScoreUpdated)")
         sharedScore.trueFalseScore = trueFalseScoreUpdated
         updateUI()
-       
+        
     }
-  
+    
     @IBAction func answerPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
         
@@ -42,10 +44,10 @@ class MultipleViewController: UIViewController {
         }
         
         quizBrain.nextQuestion()
-         
+        
         
         if quizBrain.flag {
-        
+            
             performSegue(withIdentifier: "goToScorePage", sender: self)
             
         }else{
@@ -68,7 +70,7 @@ class MultipleViewController: UIViewController {
         progressBar.progress = quizBrain.getProgress()
         
         
-     
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToScorePage" {
@@ -77,10 +79,10 @@ class MultipleViewController: UIViewController {
                 destinationVC.multipleChoiceScore = sharedScore.multipleChoiceScore
                 destinationVC.trueFalseScore = trueFalseScoreUpdated
             }
-          
+            
         }
     }
-
-    }
     
+}
+
 

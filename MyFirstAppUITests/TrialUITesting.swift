@@ -23,6 +23,123 @@ final class TrialUITesting: XCTestCase {
         app = nil
     }
     
+  /*  func testTrueFalseQues1() {
+        testValidLoginSuccess()
+        let quesLabel = app.staticTexts["quesLabel"]
+        XCTAssertTrue(quesLabel.exists)
+        XCTAssertEqual(quesLabel.label, "A slug's blood is green.")
+        let trueButton = app.buttons["trueButton"]
+        let falseButton = app.buttons["falseButton"]
+        trueButton.tap()
+        //trueButton.label
+        //XCTAssertTrue(trueButton.backgroundColor == UIColor.green, "The button background color is not green")
+    }*/
+    
+    func navigateMultipleChoiceQues() {
+        
+       // testNavigateToMultipleChoiceView()
+        let choiceAButton = app.buttons["choiceA"]
+        let choiceBButton = app.buttons["choiceB"]
+        let choiceCButton = app.buttons["choiceC"]
+        XCTAssertTrue(choiceAButton.exists)
+        XCTAssertTrue(choiceBButton.exists)
+        XCTAssertTrue(choiceCButton.exists)
+        choiceAButton.tap()
+    }
+
+
+    func testNavigateToMultipleChoiceView () {
+        testValidLoginSuccess()
+        navigateTFQues()
+        let multipleChoiceButton = app.buttons["MultipleChoiceButton"]
+        XCTAssertTrue(multipleChoiceButton.exists)
+        multipleChoiceButton.tap()
+        let multipleChoiceView = app.otherElements["MultipleChoiceView"]
+        XCTAssertTrue(multipleChoiceView.exists)
+    }
+     
+    func navigateTFQues() {
+        
+        while (app.buttons["finalScoreButton"].isHittable != true || app.buttons["MultipleChoiceButton"].isHittable != true) {
+            let trueButton = app.buttons["True"]
+            XCTAssertTrue(trueButton.exists)
+            trueButton.tap()
+        }
+    }
+    
+    
+    func testNavigateToScoreViewFromTF() {
+        
+        testValidLoginSuccess()
+        navigateTFQues()
+        goToFinalPage()
+    }
+    
+    func testNavigateToScoreViewFromMultiple() {
+        testNavigateToMultipleChoiceView()
+       // let textLabel = app.staticTexts[""]
+        let finalView = app.otherElements["FinalScoreView"]
+        while(!finalView.exists) {
+            navigateMultipleChoiceQues()
+        }
+        XCTAssertTrue(finalView.exists, "The final view does not exist")
+            
+        
+    }
+    
+    
+    func goToFinalPage() {
+        
+        let finalScoreButton = app.buttons["finalScoreButton"]
+        XCTAssertTrue(finalScoreButton.exists)
+        finalScoreButton.tap()
+        let finalScoreView = app.otherElements["FinalScoreView"]
+        XCTAssertTrue(finalScoreView.exists)
+    }
+    
+    func testEmptyLogin() {
+
+        app.staticTexts["Login"].tap()
+        let alertDialog = app.alerts["Alert"]
+        XCTAssertTrue(alertDialog.exists)
+        alertDialog.scrollViews.otherElements.buttons["Close"].tap()
+    }
+    
+    
+    func testInvalidLogin() {
+        
+        let usernameTextField =  app.textFields["Enter Username"]
+        XCTAssertTrue(usernameTextField.exists)
+        usernameTextField.tap()
+        
+        let passwordTextField = app.textFields["Enter Password"]
+        XCTAssertTrue(passwordTextField.exists)
+        passwordTextField.tap()
+        
+        app.buttons["Login"].tap()
+        let alertDialog = app.alerts["Alert"]
+        XCTAssertTrue(alertDialog.exists)
+        alertDialog.scrollViews.otherElements.buttons["Close"].tap()
+        
+    }
+    
+    func testPlayAgainButton() {
+        testValidLoginSuccess()
+        navigateTFQues()
+        goToFinalPage()
+         let playAgainButton = app.buttons["playAgainButton"]
+         XCTAssertTrue(playAgainButton.exists)
+         playAgainButton.tap()
+         XCTAssertTrue(app.otherElements["QuizView"].exists)
+    }
+    
+    func testResetScore(){
+        testPlayAgainButton()
+        let scoreLabel = app.staticTexts["scoreLabel"]
+        XCTAssertTrue(scoreLabel.exists)
+        XCTAssertEqual(scoreLabel.label, "Score: 0")
+        
+    }
     
     func testValidLoginSuccess() {
         let validUsername = "User"
@@ -30,18 +147,7 @@ final class TrialUITesting: XCTestCase {
         
         let usernameTextField =  app.textFields["Enter Username"]
         XCTAssertTrue(usernameTextField.exists)
-        
-        // XCTAssertEqual(usernameTextField.label, "Enter Username")
-        //XCTAssertEqual(app.staticTexts.element.label, "Enter Username")
-        //        XCTAssert( app.textFields["Enter Username"].exists, "test text field doesn't exist" )
-        //        let tf = app.textFields["Enter Username"]
-        //        tf.tap()    // must give text field keyboard focus!
-        //        tf.typeText("Hello!")
-        //        XCTAssert( tf.exists, "tf exists" )   // text field still exists
-        //        XCTAssertEqual( tf.value as! String, "Hello!", "text field has proper value" )
-        //
         usernameTextField.tap()
-        
         usernameTextField.typeText(validUsername)
         
         let passwordTextField = app.textFields["Enter Password"]
@@ -50,8 +156,11 @@ final class TrialUITesting: XCTestCase {
         passwordTextField.typeText(validPassword)
         passwordTextField.typeText("\n")
         app.buttons["Login"].tap()
+        
+        XCTAssertTrue(app.otherElements["QuizView"].exists)
+ 
+    // check text of final screen
     }
-    
 }
 
 extension XCUIApplication {

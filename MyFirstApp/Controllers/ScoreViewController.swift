@@ -22,9 +22,13 @@ class ScoreViewController: UIViewController {
 
     
     override func viewDidLoad() {
+        textLabel.accessibilityIdentifier
         super.viewDidLoad()
         updateUI()
         view.backgroundColor =  UIColor(red: 50/255, green: 58/255, blue: 90/255, alpha: 1)
+        view.accessibilityIdentifier = "FinalScoreView"
+        playAgain.accessibilityIdentifier = "playAgainButton"
+ 
         // Do any additional setup after loading the view.
     }
     
