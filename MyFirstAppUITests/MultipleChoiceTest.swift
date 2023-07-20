@@ -31,7 +31,7 @@ final class MultipleChoiceTest: XCTestCase {
         XCTAssertTrue(choiceCButton.exists)
         choiceAButton.tap()
     }
-R
+
     func testNavigateToMultipleChoiceView () {
         testValidLoginSuccess()
         navigateTFQues()
