@@ -58,22 +58,6 @@ final class TrialUITesting: XCTestCase {
         XCTAssertTrue(multipleChoiceView.exists)
     }
      
-    func navigateTFQues() {
-        
-        while (app.buttons["finalScoreButton"].isHittable != true || app.buttons["MultipleChoiceButton"].isHittable != true) {
-            let trueButton = app.buttons["True"]
-            XCTAssertTrue(trueButton.exists)
-            trueButton.tap()
-        }
-    }
-    
-    
-    func testNavigateToScoreViewFromTF() {
-        
-        testValidLoginSuccess()
-        navigateTFQues()
-        goToFinalPage()
-    }
     
     func testNavigateToScoreViewFromMultiple() {
         testNavigateToMultipleChoiceView()
@@ -83,10 +67,16 @@ final class TrialUITesting: XCTestCase {
             navigateMultipleChoiceQues()
         }
         XCTAssertTrue(finalView.exists, "The final view does not exist")
-            
-        
     }
     
+    func navigateTFQues() {
+        
+        while (app.buttons["finalScoreButton"].isHittable != true || app.buttons["MultipleChoiceButton"].isHittable != true) {
+            let trueButton = app.buttons["True"]
+            XCTAssertTrue(trueButton.exists)
+            trueButton.tap()
+        }
+    }
     
     func goToFinalPage() {
         
@@ -96,6 +86,14 @@ final class TrialUITesting: XCTestCase {
         let finalScoreView = app.otherElements["FinalScoreView"]
         XCTAssertTrue(finalScoreView.exists)
     }
+    
+    func testNavigateToScoreViewFromTF() {
+        
+        testValidLoginSuccess()
+        navigateTFQues()
+        goToFinalPage()
+    }
+    
     
     func testEmptyLogin() {
 
@@ -123,25 +121,8 @@ final class TrialUITesting: XCTestCase {
         
     }
     
-    func testPlayAgainButton() {
-        testValidLoginSuccess()
-        navigateTFQues()
-        goToFinalPage()
-         let playAgainButton = app.buttons["playAgainButton"]
-         XCTAssertTrue(playAgainButton.exists)
-         playAgainButton.tap()
-         XCTAssertTrue(app.otherElements["QuizView"].exists)
-    }
     
-    func testResetScore(){
-        testPlayAgainButton()
-        let scoreLabel = app.staticTexts["scoreLabel"]
-        XCTAssertTrue(scoreLabel.exists)
-        XCTAssertEqual(scoreLabel.label, "Score: 0")
-        
-    }
-    
-    func testValidLoginSuccess() {
+   func testValidLoginSuccess() {
         let validUsername = "User"
         let validPassword = "pass123"
         
@@ -158,8 +139,24 @@ final class TrialUITesting: XCTestCase {
         app.buttons["Login"].tap()
         
         XCTAssertTrue(app.otherElements["QuizView"].exists)
- 
-    // check text of final screen
+    }
+    
+    func testPlayAgainButton() {
+        testValidLoginSuccess()
+        navigateTFQues()
+        goToFinalPage()
+         let playAgainButton = app.buttons["playAgainButton"]
+         XCTAssertTrue(playAgainButton.exists)
+         playAgainButton.tap()
+         XCTAssertTrue(app.otherElements["QuizView"].exists)
+    }
+    
+    func testResetScore(){
+        testPlayAgainButton()
+        let scoreLabel = app.staticTexts["scoreLabel"]
+        XCTAssertTrue(scoreLabel.exists)
+        XCTAssertEqual(scoreLabel.label, "Score: 0")
+        
     }
 }
 

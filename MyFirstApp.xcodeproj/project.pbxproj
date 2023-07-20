@@ -15,6 +15,7 @@
 		F63D6ED42A60295B00477735 /* MultipleChoiceBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D6ED32A60295B00477735 /* MultipleChoiceBrain.swift */; };
 		F63D6ED62A602A8F00477735 /* MultipleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63D6ED52A602A8F00477735 /* MultipleViewController.swift */; };
 		F6670BE12A600DA0009F02ED /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6670BE02A600DA0009F02ED /* QuizViewController.swift */; };
+		F66EAAAF2A685A6B006AE327 /* MultipleChoiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66EAAAE2A685A6B006AE327 /* MultipleChoiceTest.swift */; };
 		F68FDADB2A5FF93400BF9C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68FDADA2A5FF93400BF9C48 /* AppDelegate.swift */; };
 		F68FDADD2A5FF93400BF9C48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68FDADC2A5FF93400BF9C48 /* SceneDelegate.swift */; };
 		F68FDADF2A5FF93400BF9C48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68FDADE2A5FF93400BF9C48 /* LoginViewController.swift */; };
@@ -53,6 +54,7 @@
 		F63D6ED32A60295B00477735 /* MultipleChoiceBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceBrain.swift; sourceTree = "<group>"; };
 		F63D6ED52A602A8F00477735 /* MultipleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleViewController.swift; sourceTree = "<group>"; };
 		F6670BE02A600DA0009F02ED /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		F66EAAAE2A685A6B006AE327 /* MultipleChoiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceTest.swift; sourceTree = "<group>"; };
 		F68FDAD72A5FF93400BF9C48 /* MyFirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F68FDADA2A5FF93400BF9C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F68FDADC2A5FF93400BF9C48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				F68FDAFB2A5FF93700BF9C48 /* MyFirstAppUITests.swift */,
 				F68FDAFD2A5FF93700BF9C48 /* MyFirstAppUITestsLaunchTests.swift */,
 				F69B41032A656B7000EC4ACF /* TrialUITesting.swift */,
+				F66EAAAE2A685A6B006AE327 /* MultipleChoiceTest.swift */,
 			);
 			path = MyFirstAppUITests;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				F69B41042A656B7000EC4ACF /* TrialUITesting.swift in Sources */,
 				F68FDAFC2A5FF93700BF9C48 /* MyFirstAppUITests.swift in Sources */,
+				F66EAAAF2A685A6B006AE327 /* MultipleChoiceTest.swift in Sources */,
 				F68FDAFE2A5FF93700BF9C48 /* MyFirstAppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
